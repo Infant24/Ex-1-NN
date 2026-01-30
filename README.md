@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
-<H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>ENTER YOUR NAME</H3> : Infant Maria Stefanie .F
+<H3>ENTER YOUR REGISTER NO.</H3> : 212224230095
+<H3>EX. NO.1</H3> 
+<H3>DATE</H3> 30/01/26
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,51 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+'''
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
+'''
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+<img width="1424" height="827" alt="image" src="https://github.com/user-attachments/assets/e4c053a6-4d58-420c-b6d1-b60faf387701" />
+
+<img width="1430" height="618" alt="image" src="https://github.com/user-attachments/assets/b4c01ecc-cd12-456c-a620-651d06bcf3d9" />
+
 
 
 ## RESULT:
